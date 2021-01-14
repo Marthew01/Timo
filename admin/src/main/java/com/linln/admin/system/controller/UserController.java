@@ -5,10 +5,7 @@ import com.linln.common.constant.AdminConst;
 import com.linln.common.enums.ResultEnum;
 import com.linln.common.enums.StatusEnum;
 import com.linln.common.exception.ResultException;
-import com.linln.common.utils.EntityBeanUtil;
-import com.linln.common.utils.ResultVoUtil;
-import com.linln.common.utils.SpringContextUtil;
-import com.linln.common.utils.StatusUtil;
+import com.linln.common.utils.*;
 import com.linln.common.vo.ResultVo;
 import com.linln.component.actionLog.action.StatusAction;
 import com.linln.component.actionLog.action.UserAction;
@@ -56,6 +53,18 @@ public class UserController {
 
     @Autowired
     private RoleService roleService;
+
+    /*public static void main(String[] args) {
+
+        String password = "123456";
+        String salt = "abcdef";
+
+        String encrypt = EncryptUtil.encrypt(password, salt);
+        System.out.println("明文密码：" + password);
+        System.out.println("密码盐：" + salt);
+        System.out.println("混淆密码：" + encrypt);
+    }*/
+
 
     /**
      * 列表页面
@@ -216,7 +225,7 @@ public class UserController {
         // 获取指定用户角色列表
         Set<Role> authRoles = user.getRoles();
         // 获取全部角色列表
-        Sort sort = new Sort(Sort.Direction.ASC, "createDate");
+        Sort sort = Sort.by(Sort.Direction.ASC, "createDate");
         List<Role> list = roleService.getListBySortOk(sort);
 
         model.addAttribute("id", user.getId());

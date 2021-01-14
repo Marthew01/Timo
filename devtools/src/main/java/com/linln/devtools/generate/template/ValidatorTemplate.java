@@ -1,5 +1,6 @@
 package com.linln.devtools.generate.template;
 
+import com.linln.common.data.URL;
 import com.linln.common.utils.ToolUtil;
 import com.linln.devtools.generate.domain.Generate;
 import com.linln.devtools.generate.enums.FieldType;
@@ -9,7 +10,8 @@ import com.linln.devtools.generate.utils.GenerateUtil;
 import com.linln.devtools.generate.utils.jAngel.nodes.*;
 import com.linln.devtools.generate.utils.parser.JavaParseUtil;
 import lombok.Data;
-import org.hibernate.validator.constraints.URL;
+//import org.hibernate.validator.constraints.URL;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.*;
